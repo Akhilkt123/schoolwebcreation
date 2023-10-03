@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'C:\Users\Akhil KT\OneDrive\Desktop\school website\schoolweb\static\style1.css' %}">
+</head>
+
+<body>
+
+    <h1>Registration Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter Your Name"><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" placeholder="Enter Your Date of Birth" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter Your Age" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" required><br><br>
+
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" placeholder="Enter Your Phone Number" required><br><br>
+
+        <label for="email_id">Email:</label>
+        <input type="email" id="email_id" name="email_id" placeholder="Enter Your Email" required><br><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" placeholder="Enter Your Address" required></textarea><br><br>
+
+        <label for="department">Department:</label>
+        <select id="department" name="department" placeholder="Enter Your Department" required>
+
+            <option value="" disabled selected>Select Department</option>
+            <option value="option2">Computer Science</option>
+            <option value="option3">Commerce</option>
+            <option value="option2">Humanities</option>
+            <option value="option3">Economics</option>
+            <option value="option3">Biology Science</option>
+
+        </select><br><br>
+
+
+        <label for="course">Course:</label>
+        <select id="course" name="Course" placeholder="Enter Your Course" required>
+
+            <option value="" disabled selected>Select Course</option>
+            <option value="option2"> MSc</option>
+            <option value="Commerce">BCA</option>
+            <option value="option2">Philosophy</option>
+            <option value="option3">B.Com.</option>
+            <option value="option3">BSc</option>
+
+        </select><br><br>
+
+
+
+
+        <label for="purpose">Purpose:</label>
+        <select id="purpose" name="purpose" placeholder="Enter Your Name" required>
+            <option value="" disabled selected>Select Purpose</option>
+            <option value="Enquiry">Enquiry</option>
+            <option value="Place Order">Place Order</option>
+            <option value="Return">Return</option>
+
+        </select><br><br>
+
+        <label>Materials Provide:</label><br>
+        <input type="checkbox" id="materials_notebook" name="materials_provide" value="Notebook">
+        <label for="materials_notebook">Notebook</label><br>
+
+        <input type="checkbox" id="materials_pen" name="materials_provide" value="Pen">
+        <label for="materials_pen">Pen</label><br>
+
+        <input type="checkbox" id="materials_exam_papers" name="materials_provide" value="Exam Papers">
+        <label for="materials_exam_papers">Exam Papers</label><br><br>
+
+
+
+
+        <button><a href="{% url 'logout' %}" class="btn  btn--green" type="submit">logout</button>
+
+        <button><a href="{% url 'regsuccess' %}" class="btn  btn--green" type="submit">Submit</button>
+
+</body>
+
+</html>
