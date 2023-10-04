@@ -47,34 +47,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav ms-auto p-4 p-lg-0">
-        <a href="index.html" class="nav-item nav-link active">Home</a>
+        <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
         <a href="{% url 'register' %}" class="nav-item nav-link">Registration</a>
 
         <div class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Department</a>
           <div class="dropdown-menu fade-down m-0">
-            <a href="https://www.google.com/search?q=computer+course+online&rlz=1C1UEAD_enIN1020IN1020&oq=compu&gs_lcrp=EgZjaHJvbWUqCQgEEAAYQxiKBTIGCAAQRRg5MgwIARAAGEMYsQMYigUyCQgCEAAYQxiKBTIMCAMQABhDGLEDGIoFMgkIBBAAGEMYigUyCQgFEAAYQxiKBTIJCAYQABhDGIoFMgoIBxAAGLEDGIAEMgwICBAAGEMYsQMYigUyCggJEAAYsQMYigXSAQk2NzAwajBqMTWoAgCwAgA&sourceid=chrome&ie=UTF-8"
-              class="dropdown-item">Computer Science</a>
+            <a href="https://en.wikipedia.org/wiki/Computer_science" class="dropdown-item">Computer Science</a>
             <a href="https://www.google.com/search?q=commerce+courses&sca_esv=569384727&rlz=1C1UEAD_enIN1020IN1020&sxsrf=AM9HkKm2bmfENh0TKIRVpMrt7fTkEYS-DQ%3A1695970207663&ei=n3MWZd-WKN-K4-EPnumn6AU&oq=commerce&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGNvbW1lcmNlKgIIAjILEAAYigUYsQMYkQIyBxAAGIoFGEMyCxAAGIoFGLEDGJECMgcQABiKBRhDMggQABiKBRiRAjIIEAAYigUYkQIyCBAAGIoFGJECMhAQABiABBgUGIcCGLEDGIMBMggQABiABBixAzIHEAAYigUYQ0iqMFAAWPYbcAF4AZABAJgBsAGgAa4JqgEDMC44uAEByAEA-AEBqAIUwgIHECMY6gIYJ8ICDRAuGMcBGK8BGOoCGCfCAhAQABiKBRjqAhi0AhhD2AEBwgIWEC4YigUYxwEY0QMY6gIYtAIYQ9gBAcICBxAjGIoFGCfCAgQQIxgnwgITEC4YigUYsQMYgwEYxwEY0QMYQ8ICChAAGIoFGLEDGEPCAgoQABiABBgUGIcCwgIFEAAYgATiAwQYACBBiAYBugYGCAEQARgB&sclient=gws-wiz-serp"
               class="dropdown-item">Commerce</a>
-            <a href="https://www.google.com/search?q=humanities+courses&sca_esv=569384727&rlz=1C1UEAD_enIN1020IN1020&sxsrf=AM9HkKlhrq-mCz5ZnHugASz6gSBxPM9bPg%3A1695970303711&ei=_3MWZZn-Kt_G4-EP4rmM4Aw&oq=hu&gs_lp=Egxnd3Mtd2l6LXNlcnAiAmh1KgIIADIHEAAYigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEC4YigUYQzIHEAAYigUYQ0i4GlAAWJEGcAF4AZABAJgBlgGgAZ0CqgEDMC4yuAEByAEA-AEBqAIUwgIHECMY6gIYJ8ICDRAuGMcBGK8BGOoCGCfCAhAQABiKBRjqAhi0AhhD2AEBwgIHECMYigUYJ8ICBRAAGIAEwgIIEAAYgAQYsQPCAhEQLhiKBRixAxiDARjHARjRA-IDBBgAIEGIBgG6BgYIARABGAE&sclient=gws-wiz-serp"
-              class="dropdown-item">Humaniies</a>
-            <a href="https://www.google.com/search?q=economics+courses&sca_esv=569384727&rlz=1C1UEAD_enIN1020IN1020&sxsrf=AM9HkKnW7oqZ-N0qSeCz-t2ZKjOvBe9BNw%3A1695970631528&ei=R3UWZerEH5Dp4-EPrZWpwAk&oq=eco&gs_lp=Egxnd3Mtd2l6LXNlcnAiA2VjbyoCCAMyBxAjGIoFGCcyBBAjGCcyBBAjGCcyCBAAGIoFGJECMgcQABiKBRhDMgoQABiKBRixAxhDMgcQABiKBRhDMgcQABiKBRhDMgcQABiKBRhDMgcQABiKBRhDSIMbUABY0AZwAXgBkAEAmAGoAaABlwOqAQMwLjO4AQHIAQD4AQGoAhTCAgcQIxjqAhgnwgINEC4YxwEYrwEY6gIYJ8ICEBAAGIoFGOoCGLQCGEPYAQHCAgsQABiABBixAxiDAcICBRAAGIAEwgILEC4YgAQYsQMYgwHCAgsQABiKBRixAxiDAcICCBAAGIAEGLED4gMEGAAgQYgGAboGBggBEAEYAQ&sclient=gws-wiz-serp"
-              class="dropdown-item">Economics</a>
-            <a href="https://www.google.com/search?q=biology+courses&sca_esv=569384727&rlz=1C1UEAD_enIN1020IN1020&sxsrf=AM9HkKkjlcx-vxBNB2xdAxGd7KP1WrexFA%3A1695970677780&ei=dXUWZfuUL6Hm2roPpKG9oA4&oq=bi&gs_lp=Egxnd3Mtd2l6LXNlcnAiAmJpKgIIADIIEAAYigUYkQIyCBAAGIoFGJECMgcQABiKBRhDMgcQABiKBRhDMgcQABiKBRhDMgcQLhiKBRhDMgcQLhiKBRhDMgcQLhiKBRhDMgcQABiKBRhDMgcQABiKBRhDSIUrUABYsxFwAXgBkAEAmAGAAqABjgOqAQUwLjEuMbgBAcgBAPgBAagCFMICBxAjGOoCGCfCAg0QLhjHARivARjqAhgnwgIQEAAYigUY6gIYtAIYQ9gBAcICFhAuGIoFGMcBGNEDGOoCGLQCGEPYAQHCAgcQIxiKBRgn4gMEGAAgQYgGAboGBggBEAEYAQ&sclient=gws-wiz-serp"
-              class="dropdown-item">Biology Science</a>
+            <a href="https://en.wikipedia.org/wiki/Humanities" class="dropdown-item">Humaniies</a>
+            <a href="https://en.wikipedia.org/wiki/Economics" class="dropdown-item">Economics</a>
+            <a href="https://en.wikipedia.org/wiki/Biology" class="dropdown-item">Biology Science</a>
           </div>
         </div>
-        <a href="contact.html" class="nav-item nav-link">Contact</a>
+        <a href="{% url 'home' %}" class="nav-item nav-link">Contact</a>
       </div>
-      <a href="{% url 'login' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-arrow-right ms-3"></i></a>
+      <a href="{% url 'login' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i
+          class="fa fa-arrow-right ms-3"></i></a>
     </div>
   </nav>
   <!-- Navbar End -->
 
 
   <!-- Carousel Start -->
-  <div class="container-fluid p-0 mb-5">
+  <div class="container-fluid p-0 mb-5">=
     <div class="owl-carousel header-carousel position-relative">
       <div class="owl-carousel-item position-relative">
         <img class="img-fluid" src="{% static 'img/carousel-1.jpg' %}" alt="">

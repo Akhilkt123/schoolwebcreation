@@ -36,24 +36,32 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Login Form</h2>
-                    <form action="reg" method="post">
+                    <form action="log" method="post">
+
                         {% csrf_token %}
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="USERNAME" name="username">
+                            <input class="input--style-1" type="text" name="username" placeholder="USERNAME" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="password" placeholder="PASSWORD" name="password">
+                            <input class="input--style-1" type="password" name="password" placeholder="PASSWORD"
+                                required>
                         </div>
 
                         <div class="p-t-20">
-                            
-							<a href="{% url 'newpage' %}" class="btn btn--radius btn--green" type="submit">Submit</button>
+                            <button class="btn btn--radius btn--green" type="submit">Submit</button>
+
                         </div>
+
+
                     </form>
-                    {% for msg in messages %}
-                    <h1>{{msg}}</h1>
-                    {% endfor %}
-                </div>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                
             </div>
         </div>
     </div>

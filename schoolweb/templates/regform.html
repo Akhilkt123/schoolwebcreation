@@ -7,12 +7,72 @@
     <title>Registration Form</title>
     <link rel="stylesheet" type="text/css"
         href="{% static 'C:\Users\Akhil KT\OneDrive\Desktop\school website\schoolweb\static\style1.css' %}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Define subcourses data based on department
+            var subcoursesData = {
+                computer_science: [
+                    { value: "cybersecurity", text: "Cybersecurity" },
+                    { value: "web_designing", text: "Web Designing" },
+                    { value: "vfx_animation", text: "VFX and Animation" },
+                    { value: "python_developer", text: "Python Developer" }
+                ],
+                commerce: [
+                    { value: "bachelor_commerce", text: "Bachelor of Commerce" },
+                    { value: "accountancy", text: "Accountancy" },
+                    { value: "management_accounting", text: "Management Accounting" },
+                    { value: "bca", text: "BCA" }
+                ],
+                humanities: [
+                    { value: "philosophy", text: "Philosophy" },
+                    { value: "literature", text: "Literature" },
+                    { value: "history", text: "History" },
+                    { value: "religion", text: "Religion" }
+                ],
+                economics: [
+                    { value: "ba_business_economics", text: "B.A. (Business Economics)" },
+                    { value: "bcom_applied_economics", text: "B.Com. (Applied Economics)" },
+                    { value: "bcom_business_economics", text: "B.Com. (Business Economics)" },
+                    { value: "ma_economics", text: "M.A. (Economics)" }
+                ],
+                biology_science: [
+                    { value: "mbbs", text: "MBBS (Bachelor of Medicine and Bachelor of Surgery)" },
+                    { value: "bds", text: "BDS (Bachelor of Dental Surgery)" },
+                    { value: "bams", text: "BAMS (Bachelor of Ayurvedic Medicine and Surgery)" },
+                    { value: "bsc_nursing", text: "B.Sc. Nursing" }
+                ]
+            };
+
+            $("#department").change(function () {
+                var selectedDepartment = $(this).val();
+                var subcourses = subcoursesData[selectedDepartment] || [];
+                var subcourseSelect = $("#subcourse");
+                subcourseSelect.html('<option value="" disabled selected>Select Subcourse</option>');
+                $.each(subcourses, function (index, subcourse) {
+                    subcourseSelect.append($('<option>', {
+                        value: subcourse.value,
+                        text: subcourse.text
+                    }));
+                });
+            });
+        });
+    </script>
+    <script>
+        // JavaScript code to display the message alert
+        document.addEventListener("DOMContentLoaded", function () {
+            {% for message in messages %}
+            alert("{{ message|escapejs }}");
+            {% endfor %}
+        });
+    </script>
 </head>
 
 <body>
 
     <h1>Registration Form</h1>
-    <form method="post">
+    <form action="" method="post">
         {% csrf_token %}
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter Your Name"><br><br>
@@ -23,12 +83,19 @@
         <label for="age">Age:</label>
         <input type="number" id="age" name="age" placeholder="Enter Your Age" required><br><br>
 
-        <label for="gender">Gender:</label>
-        <input type="text" id="gender" name="gender" required><br><br>
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
 
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="gender" value="other" required>
+        <label for="other">Other</label><br><br>
 
         <label for="phone_number">Phone Number:</label>
-        <input type="text" id="phone_number" name="phone_number" placeholder="Enter Your Phone Number" required><br><br>
+        <input type="number" id="phone_number" name="phone_number" placeholder="Enter Your Phone Number"
+            required><br><br>
 
         <label for="email_id">Email:</label>
         <input type="email" id="email_id" name="email_id" placeholder="Enter Your Email" required><br><br>
@@ -36,30 +103,21 @@
         <label for="address">Address:</label>
         <textarea id="address" name="address" placeholder="Enter Your Address" required></textarea><br><br>
 
-        <label for="department">Department:</label>
-        <select id="department" name="department" placeholder="Enter Your Department" required>
-
+        <label for="department">Select Department:</label>
+        <select id="department" name="department" required>
             <option value="" disabled selected>Select Department</option>
-            <option value="option2">Computer Science</option>
-            <option value="option3">Commerce</option>
-            <option value="option2">Humanities</option>
-            <option value="option3">Economics</option>
-            <option value="option3">Biology Science</option>
+            <option value="computer_science">Computer Science</option>
+            <option value="commerce">Commerce</option>
+            <option value="humanities">Humanities</option>
+            <option value="economics">Economics</option>
+            <option value="biology_science">Biology Science</option>
+        </select>
 
-        </select><br><br>
+        <label for="subcourse">Select Subcourse:</label>
+        <select id="subcourse" name="subcourse" required>
+            <option value="" disabled selected>Select Subcourse</option>
+        </select>
 
-
-        <label for="course">Course:</label>
-        <select id="course" name="Course" placeholder="Enter Your Course" required>
-
-            <option value="" disabled selected>Select Course</option>
-            <option value="option2"> MSc</option>
-            <option value="Commerce">BCA</option>
-            <option value="option2">Philosophy</option>
-            <option value="option3">B.Com.</option>
-            <option value="option3">BSc</option>
-
-        </select><br><br>
 
 
 
@@ -85,11 +143,20 @@
 
 
 
+        <div class="p-t-20">
+            <button class="btn btn--radius btn--green" type="submit">Submit</button>
+            <button><a href="{% url 'home' %}" class="btn btn-green">Logout</button></a>
+        </div>
+        
+        {% for msg in messages %}
+        <h1>{{msg}}</h1>
+        {% endfor %}
 
-        <button><a href="{% url 'logout' %}" class="btn  btn--green" type="submit">logout</button>
-
-        <button><a href="{% url 'regsuccess' %}" class="btn  btn--green" type="submit">Submit</button>
-
+        {% if alert_message %}
+        <script>
+            alert("{{ alert_message }}");
+        </script>
+        {% endif %}
 </body>
 
 </html>
